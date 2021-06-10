@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-mv ~/.Renviron ~/.Renviron_old
-cp Renviron_error1 ~/.Renviron
-
 mv ~/.Rprofile ~/.Rprofile_old
-cp Rprofile_empty ~/.Rprofile
+mv ~/.Renviron ~/.Renviron_old
 
-Rscript rscript.R
+cp Renviron_error1 ~/.Renviron
+Rscript -e "callr::r(function() TRUE, show = TRUE)"
 
 cp Renviron_error2 ~/.Renviron
-
-Rscript rscript.R
+Rscript -e "callr::r(function() TRUE, show = TRUE)"
